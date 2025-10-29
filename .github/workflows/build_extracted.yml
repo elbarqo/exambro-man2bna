@@ -22,11 +22,11 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Build debug APK
-      run: |
-        cd exambro_man2bna_template
-        chmod +x gradlew
-        ./gradlew assembleDebug
+    - name: Build APK
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: assembleDebug
+        build-root-directory: exambro_man2bna_template
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
