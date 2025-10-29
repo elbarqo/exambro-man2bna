@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Exambro MAN2BNA</string>
+    <string name="exit_password_prompt">Masukkan Password Keluar</string>
+    <string name="exit">Keluar</string>
+    <string name="cancel">Batal</string>
+</resources>
