@@ -8,30 +8,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v3
 
-      - name: Unzip project
-        run: unzip -o exambro_man2bna_template.zip -d project
+    - name: Unzip project
+      run: unzip -o exambro_man2bna_template.zip -d project
 
-      - name: Build debug APK
-        run: |
-          cd project
-          chmod +x gradlew
-          ./gradlew assembleDebug
+    - name: Build debug APK
+      run: |
+        cd project
+        chmod +x gradlew
+        ./gradlew assembleDebug
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: exambro-man2bna
-          path: project/app/build/outputs/apk/debug/*.apk
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: exambro-man2bna
+        path: project/app/build/outputs/apk/debug/*.apk
